@@ -50,7 +50,7 @@ class AppController extends Controller {
                 'paramType' => 'querystring'
             )
         ),
-        'DebugKit.Toolbar'
+        'DebugKit.Toolbar' => array('panels' => array('history' => false))
     );
 
     public $helpers = array(
