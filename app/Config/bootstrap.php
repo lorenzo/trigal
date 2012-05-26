@@ -24,7 +24,7 @@
  */
 
 // Setup a 'default' cache configuration for use in the application.
-Cache::config('default', array('engine' => 'File'));
+Cache::config('default', array('engine' => 'File', 'path' => sys_get_temp_dir(), 'prefix' => 'trigal_'));
 
 /**
  * The settings below can be used to set additional paths to models, views and controllers.
