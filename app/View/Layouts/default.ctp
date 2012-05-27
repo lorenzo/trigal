@@ -43,6 +43,7 @@
 					<span class="i-bar"></span>
 				</a>
 				<a class="brand" href="#">Consejo Comunal El Trigal</a>
+				<!--
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li><?php echo $this->Html->link('Example', array(
@@ -52,7 +53,8 @@
 							'action' => 'index',
 						)); ?></li>
 					</ul>
-				</div><!--/.nav-collapse -->
+				</div>
+				-->
 			</div>
 		</div>
 	</div>
