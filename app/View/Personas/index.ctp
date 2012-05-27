@@ -14,7 +14,7 @@
 				<th><?php echo $this->Paginator->sort('sexo');?></th>
 				<th><?php echo $this->Paginator->sort('elector');?></th>
 				<th><?php echo $this->Paginator->sort('calle');?></th>
-				<th class="actions"><?php echo __('Actions');?></th>
+				<th class="actions"><?php echo __('Acciones');?></th>
 			</tr>
 		<?php foreach ($items as $persona): ?>
 			<tr>
@@ -39,7 +39,7 @@
 		<div class="well" style="padding: 8px 0; margin-top:8px;">
 		<ul class="nav nav-list">
 			<li class="nav-header"><?php echo __('Actions'); ?></li>
-			<li><?php echo $this->Html->link(__('New %s', __('Persona')), array('action' => 'add')); ?></li>
+			<li><?php echo $this->Html->link(__('Agregar %s', __('Persona')), array('action' => 'add')); ?></li>
 		</ul>
 		</div>
 	</div>
