@@ -48,13 +48,15 @@ class Persona extends AppModel {
 	public $belongsTo = array(
 		'Profesion' => array(
 			'className' => 'Profesion',
-			'order' => array('nombre' => 'desc')
+			'order' => array('Profesion.nombre' => 'asc')
 		),
 		'Calle' => array(
 			'className' => 'Calle',
-			'order' => array('nombre' => 'desc')
+			'order' => array('Calle.nombre' => 'asc')
 		)
 	);
+
+	public $order = array('Persona.nombre_completo' => 'asc');
 
 	public function beforeImport($data) {
 		$opcionesElector = array();

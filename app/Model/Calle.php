@@ -23,4 +23,6 @@ class Calle extends AppModel {
 			),
 		),
 	);
+
+	public $order = array('Calle.nombre' => 'asc');
 }

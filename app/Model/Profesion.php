@@ -25,4 +25,6 @@ class Profesion extends AppModel {
 			),
 		),
 	);
+
+	public $order = array('Profesion.nombre' => 'asc');
 }
