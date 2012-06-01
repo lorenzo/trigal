@@ -64,7 +64,7 @@ class AppController extends Controller {
     /**
     * Dispatches the controller action.  Checks that the action exists and isn't private.
     *
-    * If Cake raises MissingActionException we attempt to execute Crud
+    * If Cake raises MissingActionException we attempt to execute Crud plugin
     *
     * @param CakeRequest $request
     * @return mixed The resulting response.
@@ -108,4 +108,14 @@ class AppController extends Controller {
             throw $e;
         }
     }
+
+    public function beforeRender() {
+        if (in_array($this->request->action, array('add', 'edit'))) {
+            foreach ($this->{$this->modelClass}->getAssociated() as $m => $m) {
+                $model = $this->{$this->modelClass}->{$m};
+                $this->set(strtolower(Inflector::pluralize($m)), $model->find('list'));
+            }
+        }
+    }
+
 }

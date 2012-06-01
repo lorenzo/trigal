@@ -24,7 +24,7 @@
 					'options' => array('M' => 'Masculino', 'F' => 'Femenino'),
 					'type' => 'radio'
 				));
-				echo $this->Form->input('profesion');
+				echo $this->Form->input('profesion_id');
 				echo $this->Form->input('elector', array(
 					'required' => 'required',
 					'options' => array(
@@ -38,7 +38,7 @@
 			<fieldset>
 				<legend>Dirección</legend>
 			<?php
-					echo $this->Form->input('calle');
+					echo $this->Form->input('calle_id');
 					echo $this->Form->input('casa_edificio');
 					echo $this->Form->input('casa_numero');
 					echo $this->Form->input('telefono');

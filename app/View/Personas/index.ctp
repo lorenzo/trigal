@@ -23,7 +23,7 @@
 				<td><?php echo h($persona['Persona']['fecha_nacimiento']); ?>&nbsp;</td>
 				<td><?php echo h($persona['Persona']['sexo']); ?>&nbsp;</td>
 				<td><?php echo h($persona['Persona']['elector']); ?>&nbsp;</td>
-				<td><?php echo h($persona['Persona']['calle']); ?>&nbsp;</td>
+				<td><?php echo h($persona['Calle']['nombre']); ?>&nbsp;</td>
 				<td class="actions">
 					<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $persona['Persona']['id'])); ?>
 					<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $persona['Persona']['id'])); ?>

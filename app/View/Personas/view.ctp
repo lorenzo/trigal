@@ -34,7 +34,7 @@
 			</dd>
 			<dt><?php echo __('Profesion'); ?></dt>
 			<dd>
-				<?php echo h($item['Persona']['profesion']); ?>
+				<?php echo h($item['Profesion']['nombre']); ?>
 				&nbsp;
 			</dd>
 			<dt><?php echo __('Elector'); ?></dt>
@@ -44,7 +44,7 @@
 			</dd>
 			<dt><?php echo __('Calle'); ?></dt>
 			<dd>
-				<?php echo h($item['Persona']['calle']); ?>
+				<?php echo h($item['Calle']['nombre']); ?>
 				&nbsp;
 			</dd>
 			<dt><?php echo __('Casa Edificio'); ?></dt>

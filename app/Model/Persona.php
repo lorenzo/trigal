@@ -43,6 +43,18 @@ class Persona extends AppModel {
 		),
 	);
 
+	public $actsAs = array('Utils.Lookupable' => array('types' => array('Profesion', 'Calle')));
+
+	public $belongsTo = array(
+		'Profesion' => array(
+			'className' => 'Profesion'
+			'order' => array('nombre' => 'desc')
+		),
+		'Calle' => array(
+			'className' => 'Calle',
+			'order' => array('nombre' => 'desc')
+		)
+	);
 
 	public function beforeImport($data) {
 		$opcionesElector = array();
@@ -77,6 +89,21 @@ class Persona extends AppModel {
 			unset($data['Persona']['cedula']);
 		}
 
+		if (!empty($data['Persona']['profesion'])) {
+			$this->lookup('Profesion', trim($data['Persona']['profesion']));
+			if (!empty($this->data['Persona']['profesion_id'])) {
+				$data['Persona']['profesion_id'] = $this->data['Persona']['profesion_id'];
+			}
+		}
+
+		if (!empty($data['Persona']['calle'])) {
+			$this->lookup('Calle', trim($data['Persona']['calle']));
+			if (!empty($this->data['Persona']['calle_id'])) {
+				$data['Persona']['calle_id'] = $this->data['Persona']['calle_id'];
+			}
+		}
+
+		$this->data = array();
 		return $data;
 	}
 
