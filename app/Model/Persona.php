@@ -47,7 +47,7 @@ class Persona extends AppModel {
 
 	public $belongsTo = array(
 		'Profesion' => array(
-			'className' => 'Profesion'
+			'className' => 'Profesion',
 			'order' => array('nombre' => 'desc')
 		),
 		'Calle' => array(
