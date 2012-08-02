@@ -1,5 +1,7 @@
 <?php
 
+Cache::config('default', array('engine' => 'File', 'path' => sys_get_temp_dir(), 'prefix' => 'trigal_'));
+
 // Add logging configuration.
 CakeLog::config('debug', array(
     'engine' => 'FileLog',
