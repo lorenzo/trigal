@@ -63,10 +63,10 @@ class DATABASE_CONFIG {
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'a.db.shared.orchestra.io',
-		'login' => 'user_1f78c4ef',
-		'password' => 'QVPqfTjof28c7-',
-		'database' => 'db_1f78c4ef',
+		'host' => 'localhost',
+		'login' => 'root',
+		'password' => '',
+		'database' => 'trigal',
 		'encoding' => 'utf8',
 	);
 

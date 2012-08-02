@@ -34,14 +34,18 @@
 						2 => 'Menor'
 					)
 				));
+				echo $this->Form->input('fallecido');
 		?>
 			<fieldset>
 				<legend>Dirección</legend>
 			<?php
-					echo $this->Form->input('calle_id');
-					echo $this->Form->input('casa_edificio');
-					echo $this->Form->input('casa_numero');
-					echo $this->Form->input('telefono');
+					echo $this->Form->input('Vivienda.calle_id');
+					echo $this->Form->input('Vivienda.tipo', array('options' => array('Casa', 'Edificio')));
+					echo $this->Form->input('Vivienda.casa_nombre');
+					echo $this->Form->input('Vivienda.casa_numero');
+					echo $this->Form->input('Vivienda.edif_nombre');
+					echo $this->Form->input('Vivienda.edif_nro_apto', array('label' => 'Numero apartamento'));
+					echo $this->Form->input('Vivienda.telefono_hab', array('label' => 'Telefono Hab.', 'type' => 'text'));
 					echo $this->Form->input('celular');
 					echo $this->Form->input('correo');
 					echo $this->Form->input('id', array('type' => 'hidden', 'div' => false));

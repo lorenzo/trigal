@@ -32,4 +32,5 @@ App::uses('Model', 'Model');
  */
 class AppModel extends Model {
 	public $displayField = 'nombre';
+	public $actsAs = array('Containable');
 }

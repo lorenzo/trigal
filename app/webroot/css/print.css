@@ -1,0 +1,61 @@
+/*!
+ * print.css v1.0.0
+ * http://printstylesheet.com/
+ *
+ * Copyright (c) 2011 David Bushell
+ * Dual licensed under the BSD or MIT licenses: http://printstylesheet.com/license.txt
+ 
+ * Author: David Bushell
+ * http://dbushell.com/
+ */
+
+/* use a media query to limit the CSS to only print devices, like a printer */
+@media only print
+{
+	.navbar, #debug-kit-toolbar {
+		display:none;
+	}
+
+	h1 {
+		display:none;
+	}
+
+	.container-fluid > .row-fluid > .span3 {
+		display:none;
+	}
+
+	.container-fluid > .row-fluid > .span9 {
+		width:100%;
+	}
+
+	.container-fluid > .row-fluid > .span9 > p {
+		display:none;
+	}
+
+	.pagination {
+		display:none;
+	}
+
+	.actions {
+		display:none;
+	}
+
+	table.cuaderno {
+		width:100%;
+	}
+
+	table.cuaderno td {
+		height:25px;
+		border:1px solid #ccc;
+	}
+
+	table { page-break-after:auto; page-break-inside:auto; }
+	tr    { page-break-inside:avoid; page-break-after:auto; }
+	td    { page-break-inside:avoid; page-break-after:auto; }
+	thead { display:table-header-group }
+	tfoot { display:table-footer-group }
+
+	td.sello, td.firma, td.huella {
+		width:10%;
+	}
+}

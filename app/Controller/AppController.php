@@ -47,9 +47,11 @@ class AppController extends Controller {
         'Paginator' => array(
             'settings' => array(
                 'limit' => 200,
+                'maxLimit' => 500,
                 'paramType' => 'querystring'
             )
         ),
+        'RequestHandler',
         'DebugKit.Toolbar' => array('panels' => array('history' => false))
     );
 
@@ -60,6 +62,11 @@ class AppController extends Controller {
         'Paginator' => array('className' => 'TwitterBootstrap.BootstrapPaginator'),
     );
 
+    public function beforeFilter() {
+        $this->request->addDetector('delete', array('callback' => function($request) {
+            return $request->is('post');
+        }));
+    }
 
     /**
     * Dispatches the controller action.  Checks that the action exists and isn't private.
@@ -113,7 +120,9 @@ class AppController extends Controller {
         if (in_array($this->request->action, array('add', 'edit'))) {
             foreach ($this->{$this->modelClass}->getAssociated() as $m => $m) {
                 $model = $this->{$this->modelClass}->{$m};
-                $this->set(strtolower(Inflector::pluralize($m)), $model->find('list'));
+                if ($model->hasField($model->displayField)) {
+                    $this->set(strtolower(Inflector::pluralize($m)), $model->find('list'));    
+                }
             }
         }
     }

@@ -1,4 +1,3 @@
-#!/usr/bin/php -q
 <?php
 /**
  * Command-line code generation utility to automate programmer chores.

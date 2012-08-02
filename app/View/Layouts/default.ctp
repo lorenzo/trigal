@@ -14,6 +14,7 @@
 	<!-- Le styles -->
 	<?php
 		echo $this->Html->css('bootstrap');
+		echo $this->Html->css('print');
 		echo $this->fetch('css');
 	?>
 	<style>
@@ -43,18 +44,37 @@
 					<span class="i-bar"></span>
 				</a>
 				<a class="brand" href="#">Consejo Comunal El Trigal</a>
-				<!--
 				<div class="nav-collapse">
 					<ul class="nav">
-						<li><?php echo $this->Html->link('Example', array(
-							'admin' => false,
-							'plugin' => 'twitter_bootstrap',
-							'controller' => 'twitter_bootstrap',
+						<li><?php echo $this->Html->link('Censo', array(
+							'controller' => 'personas',
 							'action' => 'index',
-						)); ?></li>
+						)); ?>
+						</li>
+						<li><?php echo $this->Html->link('Profesiones', array(
+							'controller' => 'profesiones',
+							'action' => 'index',
+						)); ?>
+						</li>
+						<li><?php echo $this->Html->link('Calles', array(
+							'controller' => 'calles',
+							'action' => 'index',
+						)); ?>
+						</li>
+						<li><?php echo $this->Html->link('Cuaderno Electoral', array(
+							'controller' => 'personas',
+							'action' => 'cuaderno_electoral',
+							'ext' => 'pdf'
+						)); ?>
+						</li>
+						<li><?php echo $this->Html->link('Cuaderno Asistencia', array(
+							'controller' => 'personas',
+							'action' => 'cuaderno_asistencia',
+							'ext' => 'pdf'
+						)); ?>
+						</li>
 					</ul>
 				</div>
-				-->
 			</div>
 		</div>
 	</div>

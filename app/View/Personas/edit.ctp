@@ -20,10 +20,13 @@
 					'required' => 'required',
 					'helpInline' => '<span class="label label-important">' . __('Require') . '</span>&nbsp;')
 				);
-				echo $this->BootstrapForm->input('calle');
-				echo $this->BootstrapForm->input('casa_edificio');
-				echo $this->BootstrapForm->input('casa_numero');
-				echo $this->BootstrapForm->input('telefono');
+				echo $this->BootstrapForm->input('Vivienda.calle_id');
+				echo $this->BootstrapForm->input('Vivienda.tipo');
+				echo $this->BootstrapForm->input('Vivienda.casa_nombre');
+				echo $this->BootstrapForm->input('Vivienda.casa_numero');
+				echo $this->BootstrapForm->input('Vivienda.edif_nombre');
+				echo $this->BootstrapForm->input('Vivienda.edif_nro_apto', array('label' => 'Numero apartamento'));
+				echo $this->BootstrapForm->input('Vivienda.telefono_hab', array('label' => 'Telefono Hab.'));
 				echo $this->BootstrapForm->input('celular');
 				echo $this->BootstrapForm->input('correo', array(
 					'required' => 'required',

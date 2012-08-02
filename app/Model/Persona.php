@@ -21,16 +21,6 @@ class Persona extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'sexo' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'elector' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
@@ -43,23 +33,39 @@ class Persona extends AppModel {
 		),
 	);
 
-	public $actsAs = array('Utils.Lookupable' => array('types' => array('Profesion', 'Calle')));
+	public $actsAs = array('Utils.Lookupable' => array('types' => array('Profesion')));
 
 	public $belongsTo = array(
 		'Profesion' => array(
 			'className' => 'Profesion',
 			'order' => array('Profesion.nombre' => 'asc')
 		),
+	);
+
+	public $hasOne = array(
+		'Vivienda' => array(
+			'className' => 'Vivienda'
+		),
 		'Calle' => array(
 			'className' => 'Calle',
-			'order' => array('Calle.nombre' => 'asc')
+			'foreignKey' => false,
+			'conditions' => array('Vivienda.calle_id = Calle.id')
 		)
 	);
 
 	public $order = array('Persona.nombre_completo' => 'asc');
 
+
+	public $opcionesElector = array(
+		'I' => 1,
+		'S' => 2,
+		'N' => 3,
+		'M' => 4,
+		'X' => 6,
+		'' => 5
+	);
+
 	public function beforeImport($data) {
-		$opcionesElector = array();
 
 		if (!empty($data['Persona']['fecha_nacimiento'])) {
 			$data['Persona']['fecha_nacimiento'] = date('Y-m-d', $this->_parseTimeStirng($data['Persona']['fecha_nacimiento']));
@@ -69,10 +75,10 @@ class Persona extends AppModel {
 
 		if (!empty($data['Persona']['elector'])) {
 			$opcion = strtoupper($data['Persona']['elector'][0]);
-			if (!isset($opcionesElector[$opcion])) {
-				$opcionesElector[$opcion] = count($opcionesElector) + 1;
+			if (!isset($this->opcionesElector[$opcion])) {
+				$this->opcionesElector[$opcion] = count($this->opcionesElector) + 1;
 			}
-			$data['Persona']['elector'] = $opcionesElector[$opcion];
+			$data['Persona']['elector'] = $this->opcionesElector[$opcion];
 		} else {
 			$data['Persona']['elector'] = 5;
 		}
@@ -99,9 +105,9 @@ class Persona extends AppModel {
 		}
 
 		if (!empty($data['Persona']['calle'])) {
-			$this->lookup('Calle', trim($data['Persona']['calle']));
-			if (!empty($this->data['Persona']['calle_id'])) {
-				$data['Persona']['calle_id'] = $this->data['Persona']['calle_id'];
+			$this->Vivienda->lookup('Calle', trim($data['Persona']['calle']));
+			if (!empty($this->Vivienda->data['Vivienda']['calle_id'])) {
+				$data['Vivienda']['calle_id'] = $this->Vivienda->data['Vivienda']['calle_id'];
 			}
 		}
 
