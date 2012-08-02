@@ -20,12 +20,7 @@ class PersonasController extends AppController {
 
 	public function index() {
 		$this->Paginator->settings += array('contain' => array('Vivienda', 'Calle'));
-		try {
-			$this->Crud->executeAction();	
-		} catch (Exception $e) {
-			debug($e->getMessage()); die;
-		}
-		
+		$this->Crud->executeAction();
 	}
 
 	public function cuaderno_electoral() {

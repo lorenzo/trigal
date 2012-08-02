@@ -64,13 +64,13 @@
 						<li><?php echo $this->Html->link('Cuaderno Electoral', array(
 							'controller' => 'personas',
 							'action' => 'cuaderno_electoral',
-							'ext' => 'pdf'
+							//'ext' => 'pdf'
 						)); ?>
 						</li>
 						<li><?php echo $this->Html->link('Cuaderno Asistencia', array(
 							'controller' => 'personas',
 							'action' => 'cuaderno_asistencia',
-							'ext' => 'pdf'
+							//'ext' => 'pdf'
 						)); ?>
 						</li>
 					</ul>
