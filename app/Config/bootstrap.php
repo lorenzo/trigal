@@ -26,6 +26,6 @@ CakePlugin::load('DebugKit');
 
 Configure::write('CakePdf', array(
 	'engine' => 'CakePdf.WkHtmlToPdf',
-	'binary' => '/bin/wkhtmltopdf',
+	'binary' => APP . 'Vendor' . DS . 'wkhtmltopdf',
 	'orientation' => 'Landscape'
 ));
