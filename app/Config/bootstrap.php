@@ -6,12 +6,14 @@ Cache::config('default', array('engine' => 'File', 'path' => sys_get_temp_dir(),
 CakeLog::config('debug', array(
     'engine' => 'FileLog',
     'types' => array('notice', 'info', 'debug'),
+    'path' => sys_get_temp_dir(),
     'file' => 'debug',
 ));
 CakeLog::config('error', array(
     'engine' => 'FileLog',
     'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
     'file' => 'error',
+    'path' => sys_get_temp_dir()
 ));
 
 
